@@ -202,17 +202,32 @@ export default function SalesAnalytics() {
                             <TableCell className="text-center">
                               {item.status === "completed" && (
                                 <div className="flex justify-center">
-                                  <Check className="h-5 w-5 text-[#11A537]" />
+                                  <div className="relative group">
+                                    <Check className="h-5 w-5 text-[#11A537]" />
+                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                                      Completed
+                                    </div>
+                                  </div>
                                 </div>
                               )}
                               {item.status === "in-progress" && (
                                 <div className="flex justify-center">
-                                  <Clock className="h-5 w-5 text-amber-500" />
+                                  <div className="relative group">
+                                    <Clock className="h-5 w-5 text-amber-500" />
+                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                                      In Progress
+                                    </div>
+                                  </div>
                                 </div>
                               )}
                               {item.status === "to-be-developed" && (
                                 <div className="flex justify-center">
-                                  <CircleDot className="h-5 w-5 text-slate-400" />
+                                  <div className="relative group">
+                                    <CircleDot className="h-5 w-5 text-slate-400" />
+                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                                      To Be Developed
+                                    </div>
+                                  </div>
                                 </div>
                               )}
                             </TableCell>
