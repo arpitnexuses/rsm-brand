@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Input } from "@/components/ui/input"
 import type { CrmItem } from "@/lib/data"
-import { Check, Clock, CircleDot } from "lucide-react"
+import { Check, Hourglass, CircleDot } from "lucide-react"
 
 interface DataTableProps {
   data: CrmItem[]
@@ -55,7 +55,7 @@ export default function DataTable({ data }: DataTableProps) {
                     )}
                     {item.status === "in-progress" && (
                       <div className="flex justify-center">
-                        <Clock className="h-5 w-5 text-amber-500" />
+                        <Hourglass className="h-5 w-5 text-amber-500" />
                       </div>
                     )}
                     {item.status === "to-be-developed" && (
