@@ -58,13 +58,13 @@ export default function SalesAnalytics() {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 md:p-10 max-w-7xl mx-auto mt-8">
-      <h2 className="text-4xl font-bold text-center mb-2 text-[#009BDD]">CRM Analytics</h2>
+      <h2 className="text-4xl font-bold text-center mb-2 text-[#009BDD]">RSM Kuwait CRM Ecosystem</h2>
       <div className="flex justify-center mb-8">
         <div className="w-32 h-0.5 bg-gray-300"></div>
       </div>
 
       <p className="text-center text-xl mb-4">
-        Organizations at the forefront of sales analytics are seeing increased revenues and customer loyalty.
+      RSM Kuwait’s CRM Ecosystem connects essential tools to optimize client engagement, workflow efficiency, and data-driven decisions across all business operations.
       </p>
 
       <div className="relative mb-12">
