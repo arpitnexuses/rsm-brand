@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 import {
   CloudIcon as CloudConnection,
   LineChartIcon as ChartLineUp,
@@ -8,28 +8,35 @@ import {
   Target,
   Search,
   X,
-} from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
-import { crmData } from "@/lib/data"
-import { Input } from "@/components/ui/input"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Check, Clock, CircleDot } from "lucide-react"
-import { Button } from "@/components/ui/button"
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { crmData } from "@/lib/data";
+import { Input } from "@/components/ui/input";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Check, Clock, CircleDot } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function SalesAnalytics() {
-  const [activeSection, setActiveSection] = useState<string | null>(null)
-  const [searchTerm, setSearchTerm] = useState("")
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSectionClick = (section: string) => {
-    setActiveSection(section)
-    setIsModalOpen(true)
-    setSearchTerm("")
-  }
+    setActiveSection(section);
+    setIsModalOpen(true);
+    setSearchTerm("");
+  };
 
   const closeModal = () => {
-    setIsModalOpen(false)
-  }
+    setIsModalOpen(false);
+  };
 
   const filteredData = activeSection
     ? crmData
@@ -37,45 +44,67 @@ export default function SalesAnalytics() {
         .filter(
           (item) =>
             item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            item.division.toLowerCase().includes(searchTerm.toLowerCase()),
+            item.division.toLowerCase().includes(searchTerm.toLowerCase())
         )
-    : []
+    : [];
 
   const getSectionTitle = (section: string | null) => {
     switch (section) {
       case "A":
-        return "Practice Assurance"
+        return "Practice Assurance";
       case "B":
-        return "Practice Auto Tax"
+        return "Practice Auto Tax";
       case "C":
-        return "Practice Consulting"
+        return "Practice Consulting";
       case "D":
-        return "Practice Management"
+        return "Practice Management";
       default:
-        return ""
+        return "";
     }
-  }
+  };
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 md:p-10 max-w-7xl mx-auto mt-8">
-      <h2 className="text-4xl font-bold text-center mb-2 text-[#009BDD]">RSM Kuwait CRM Ecosystem</h2>
+      <div className="flex justify-center items-center gap-4 p-2">
+        {/* <img
+          src="https://res.cloudinary.com/rsmglobal/image/fetch/t_default/f_auto/q_auto/https://www.rsm.global/profiles/rsm_global_platform/themes/rsm_global_platform_2022/images/logo@2x.png"
+          alt="RSM Logo"
+          className="h-10"
+        /> */}
+        <h2 className="text-4xl font-bold text-center mb-2 text-[#009BDD]">
+          RSM Kuwait CRM Ecosystem
+        </h2>
+      </div>
       <div className="flex justify-center mb-8">
         <div className="w-32 h-0.5 bg-gray-300"></div>
       </div>
 
       <p className="text-center text-xl mb-4">
-      RSM Kuwait’s CRM Ecosystem connects essential tools to optimize client engagement, workflow efficiency, and data-driven decisions across all business operations.
+        RSM Kuwait's CRM Ecosystem connects essential tools to optimize client
+        engagement, workflow efficiency, and data-driven decisions across all
+        business operations.
       </p>
 
       <div className="relative mb-12">
         {/* Center image */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-          <div className="flex items-center justify-center">
-            <img 
-              src="https://cdn-nexlink.s3.us-east-2.amazonaws.com/hsbid_f361b136-f43e-49b7-add2-7c1e6060f60f.png" 
+          <div className="flex items-center justify-center relative">
+            <img
+              src="https://cdn-nexlink.s3.us-east-2.amazonaws.com/hsbid_f361b136-f43e-49b7-add2-7c1e6060f60f.png"
               alt="Sales Analytics"
               className="w-[400px] h-[400px] object-contain filter hue-rotate-90 brightness-95"
             />
+            {/* RSM Logo overlaid in center */}
+            <div
+              className="absolute inset-0 flex items-center justify-center z-20"
+              style={{ marginTop: "-55px" }}
+            >
+              <img
+                src="https://res.cloudinary.com/rsmglobal/image/fetch/t_default/f_auto/q_auto/https://www.rsm.global/profiles/rsm_global_platform/themes/rsm_global_platform_2022/images/logo@2x.png"
+                alt="RSM Logo"
+                className="h-9 w-16 bg-transparent p-2 rounded-full"
+              />
+            </div>
           </div>
         </div>
 
@@ -89,9 +118,12 @@ export default function SalesAnalytics() {
             onClick={() => handleSectionClick("A")}
           >
             <div className="flex flex-col items-start gap-4 max-w-sm">
-              <span className="text-3xl font-bold text-[#11A537]">Practice Assurance</span>
+              <span className="text-3xl font-bold text-[#11A537]">
+                Practice Assurance
+              </span>
               <p className="text-lg text-left">
-                Client report issuance, financial statements, audit tracking and management
+                Client report issuance, financial statements, audit tracking and
+                management
               </p>
             </div>
           </motion.div>
@@ -105,9 +137,12 @@ export default function SalesAnalytics() {
             onClick={() => handleSectionClick("B")}
           >
             <div className="flex flex-col items-end gap-4 max-w-sm">
-              <span className="text-3xl font-bold text-[#11A537]">Practice Auto Tax</span>
+              <span className="text-3xl font-bold text-[#11A537]">
+                Practice Auto Tax
+              </span>
               <p className="text-lg text-right">
-                Deem profit basis, actual profit automation and NLST & Zakat calculation
+                Deem profit basis, actual profit automation and NLST & Zakat
+                calculation
               </p>
             </div>
           </motion.div>
@@ -121,9 +156,12 @@ export default function SalesAnalytics() {
             onClick={() => handleSectionClick("C")}
           >
             <div className="flex flex-col items-start gap-4 max-w-sm">
-              <span className="text-3xl font-bold text-[#11A537]">Practice Consulting</span>
+              <span className="text-3xl font-bold text-[#11A537]">
+                Practice Consulting
+              </span>
               <p className="text-lg text-left">
-                Risk management, human resources, training and employee engagement
+                Risk management, human resources, training and employee
+                engagement
               </p>
             </div>
           </motion.div>
@@ -137,9 +175,12 @@ export default function SalesAnalytics() {
             onClick={() => handleSectionClick("D")}
           >
             <div className="flex flex-col items-end gap-4 max-w-sm">
-              <span className="text-3xl font-bold text-[#11A537]">Practice Management</span>
+              <span className="text-3xl font-bold text-[#11A537]">
+                Practice Management
+              </span>
               <p className="text-lg text-right">
-                Operations, client experience, resource planning and workflow management
+                Operations, client experience, resource planning and workflow
+                management
               </p>
             </div>
           </motion.div>
@@ -160,8 +201,15 @@ export default function SalesAnalytics() {
               className="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] flex flex-col"
             >
               <div className="flex justify-between items-center p-6 border-b">
-                <h3 className="text-2xl font-bold">{getSectionTitle(activeSection)}</h3>
-                <Button variant="ghost" size="icon" onClick={closeModal} className="hover:bg-[#009BDD]/10 hover:text-[#009BDD]">
+                <h3 className="text-2xl font-bold">
+                  {getSectionTitle(activeSection)}
+                </h3>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={closeModal}
+                  className="hover:bg-[#009BDD]/10 hover:text-[#009BDD]"
+                >
                   <X className="h-5 w-5" />
                 </Button>
               </div>
@@ -183,22 +231,36 @@ export default function SalesAnalytics() {
                   <Table>
                     <TableHeader>
                       <TableRow className="bg-gradient-to-r from-[#11A537]/5 to-[#11A537]/10">
-                        <TableHead className="w-12 font-semibold text-gray-700">#</TableHead>
-                        <TableHead className="font-semibold text-gray-700">Division</TableHead>
-                        <TableHead className="font-semibold text-gray-700">Title</TableHead>
-                        <TableHead className="w-24 text-center font-semibold text-gray-700">Status</TableHead>
+                        <TableHead className="w-12 font-semibold text-gray-700">
+                          #
+                        </TableHead>
+                        <TableHead className="font-semibold text-gray-700">
+                          Division
+                        </TableHead>
+                        <TableHead className="font-semibold text-gray-700">
+                          Title
+                        </TableHead>
+                        <TableHead className="w-24 text-center font-semibold text-gray-700">
+                          Status
+                        </TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
                       {filteredData.length > 0 ? (
                         filteredData.map((item) => (
-                          <TableRow 
+                          <TableRow
                             key={`${item.section}-${item.practice}-${item.division}-${item.id}`}
                             className="hover:bg-[#11A537]/5 transition-colors duration-150"
                           >
-                            <TableCell className="font-medium text-gray-900">{item.id}</TableCell>
-                            <TableCell className="text-gray-700">{item.division}</TableCell>
-                            <TableCell className="text-gray-700">{item.title}</TableCell>
+                            <TableCell className="font-medium text-gray-900">
+                              {item.id}
+                            </TableCell>
+                            <TableCell className="text-gray-700">
+                              {item.division}
+                            </TableCell>
+                            <TableCell className="text-gray-700">
+                              {item.title}
+                            </TableCell>
                             <TableCell className="text-center">
                               {item.status === "completed" && (
                                 <div className="flex justify-center">
@@ -235,7 +297,10 @@ export default function SalesAnalytics() {
                         ))
                       ) : (
                         <TableRow>
-                          <TableCell colSpan={4} className="h-32 text-center text-gray-500">
+                          <TableCell
+                            colSpan={4}
+                            className="h-32 text-center text-gray-500"
+                          >
                             No results found.
                           </TableCell>
                         </TableRow>
@@ -246,8 +311,8 @@ export default function SalesAnalytics() {
               </div>
 
               <div className="p-6 border-t flex justify-end">
-                <Button 
-                  onClick={closeModal} 
+                <Button
+                  onClick={closeModal}
                   className="bg-[#009BDD] text-white hover:bg-[#009BDD]/90 transition-colors"
                 >
                   Close
@@ -258,5 +323,5 @@ export default function SalesAnalytics() {
         )}
       </AnimatePresence>
     </div>
-  )
+  );
 }
